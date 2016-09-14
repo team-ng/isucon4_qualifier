@@ -409,6 +409,10 @@ func postLogin(c *gin.Context) {
 
 		return
 	}
+	session, _ := store.Get(c.Request, "user_id")
+	session.Values["user_id"] = user.ID
+	session.Save(c.Request, c.Writer)
+
 	c.Redirect(http.StatusOK, "/mypage")
 }
 
