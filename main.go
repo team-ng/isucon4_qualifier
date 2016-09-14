@@ -413,7 +413,7 @@ func postLogin(c *gin.Context) {
 	session.Values["user_id"] = user.ID
 	session.Save(c.Request, c.Writer)
 
-	c.Redirect(http.StatusOK, "/mypage")
+	c.Redirect(http.StatusMovedPermanently, "/mypage")
 }
 
 func getMypage(c *gin.Context) {
