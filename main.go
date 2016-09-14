@@ -59,7 +59,7 @@ func getIndex(c *gin.Context) {
   <head>
     <meta charset="UTF-8">
     <script id="css">
-    document.write('<link rel="stylesheet" href="/stylesheets/bootstrap.min.css"> <link rel="stylesheet" href="/stylesheets/bootflat.min.css"> <link rel="stylesheet" href="/stylesheets/isucon-bank.css">');
+    document.write('<link rel="stylesheet" href="/public/stylesheets/bootstrap.min.css"> <link rel="stylesheet" href="/public/stylesheets/bootflat.min.css"> <link rel="stylesheet" href="/public/stylesheets/isucon-bank.css">');
     script = document.getElementById('css');
     script.parentNode.removeChild(script);
     </script>
@@ -70,7 +70,7 @@ func getIndex(c *gin.Context) {
       <h1 id="topbar">
         <a href="/">
           <script id="img">
-          document.write('<img src="/images/isucon-bank.png" alt="いすこん銀行 オンラインバンキングサービス">');
+          document.write('<img src="/public/images/isucon-bank.png" alt="いすこん銀行 オンラインバンキングサービス">');
           script = document.getElementById('img');
           script.parentNode.removeChild(script);
           </script>
@@ -127,7 +127,7 @@ func getIndex(c *gin.Context) {
   <head>
     <meta charset="UTF-8">
     <script id="css">
-    document.write('<link rel="stylesheet" href="/stylesheets/bootstrap.min.css"> <link rel="stylesheet" href="/stylesheets/bootflat.min.css"> <link rel="stylesheet" href="/stylesheets/isucon-bank.css">');
+    document.write('<link rel="stylesheet" href="/public/stylesheets/bootstrap.min.css"> <link rel="stylesheet" href="/public/stylesheets/bootflat.min.css"> <link rel="stylesheet" href="/public/stylesheets/isucon-bank.css">');
     script = document.getElementById('css');
     script.parentNode.removeChild(script);
     </script>
@@ -138,7 +138,7 @@ func getIndex(c *gin.Context) {
       <h1 id="topbar">
         <a href="/">
           <script id="img">
-          document.write('<img src="/images/isucon-bank.png" alt="いすこん銀行 オンラインバンキングサービス">');
+          document.write('<img src="/public/images/isucon-bank.png" alt="いすこん銀行 オンラインバンキングサービス">');
           script = document.getElementById('img');
           script.parentNode.removeChild(script);
           </script>
@@ -195,7 +195,7 @@ func getIndex(c *gin.Context) {
   <head>
     <meta charset="UTF-8">
     <script id="css">
-    document.write('<link rel="stylesheet" href="/stylesheets/bootstrap.min.css"> <link rel="stylesheet" href="/stylesheets/bootflat.min.css"> <link rel="stylesheet" href="/stylesheets/isucon-bank.css">');
+    document.write('<link rel="stylesheet" href="/public/stylesheets/bootstrap.min.css"> <link rel="stylesheet" href="/public/stylesheets/bootflat.min.css"> <link rel="stylesheet" href="/public/stylesheets/isucon-bank.css">');
     script = document.getElementById('css');
     script.parentNode.removeChild(script);
     </script>
@@ -206,7 +206,7 @@ func getIndex(c *gin.Context) {
       <h1 id="topbar">
         <a href="/">
           <script id="img">
-          document.write('<img src="/images/isucon-bank.png" alt="いすこん銀行 オンラインバンキングサービス">');
+          document.write('<img src="/public/images/isucon-bank.png" alt="いすこん銀行 オンラインバンキングサービス">');
           script = document.getElementById('img');
           script.parentNode.removeChild(script);
           </script>
@@ -263,7 +263,7 @@ func getIndex(c *gin.Context) {
   <head>
     <meta charset="UTF-8">
     <script id="css">
-    document.write('<link rel="stylesheet" href="/stylesheets/bootstrap.min.css"> <link rel="stylesheet" href="/stylesheets/bootflat.min.css"> <link rel="stylesheet" href="/stylesheets/isucon-bank.css">');
+    document.write('<link rel="stylesheet" href="/public/stylesheets/bootstrap.min.css"> <link rel="stylesheet" href="/public/stylesheets/bootflat.min.css"> <link rel="stylesheet" href="/public/stylesheets/isucon-bank.css">');
     script = document.getElementById('css');
     script.parentNode.removeChild(script);
     </script>
@@ -274,7 +274,7 @@ func getIndex(c *gin.Context) {
       <h1 id="topbar">
         <a href="/">
           <script id="img">
-          document.write('<img src="/images/isucon-bank.png" alt="いすこん銀行 オンラインバンキングサービス">');
+          document.write('<img src="/public/images/isucon-bank.png" alt="いすこん銀行 オンラインバンキングサービス">');
           script = document.getElementById('img');
           script.parentNode.removeChild(script);
           </script>
@@ -331,7 +331,7 @@ func getIndex(c *gin.Context) {
   <head>
     <meta charset="UTF-8">
     <script id="css">
-    document.write('<link rel="stylesheet" href="/stylesheets/bootstrap.min.css"> <link rel="stylesheet" href="/stylesheets/bootflat.min.css"> <link rel="stylesheet" href="/stylesheets/isucon-bank.css">');
+    document.write('<link rel="stylesheet" href="/public/stylesheets/bootstrap.min.css"> <link rel="stylesheet" href="/public/stylesheets/bootflat.min.css"> <link rel="stylesheet" href="/public/stylesheets/isucon-bank.css">');
     script = document.getElementById('css');
     script.parentNode.removeChild(script);
     </script>
@@ -342,7 +342,7 @@ func getIndex(c *gin.Context) {
       <h1 id="topbar">
         <a href="/">
           <script id="img">
-          document.write('<img src="/images/isucon-bank.png" alt="いすこん銀行 オンラインバンキングサービス">');
+          document.write('<img src="/public/images/isucon-bank.png" alt="いすこん銀行 オンラインバンキングサービス">');
           script = document.getElementById('img');
           script.parentNode.removeChild(script);
           </script>
@@ -400,11 +400,11 @@ func postLogin(c *gin.Context) {
 	if err != nil || user == nil {
 		switch err {
 		case ErrBannedIP:
-			c.Redirect(http.StatusMovedPermanently, "/?err=banned")
+			c.Redirect(302, "/?err=banned")
 		case ErrLockedUser:
-			c.Redirect(http.StatusMovedPermanently, "/?err=locked")
+			c.Redirect(302, "/?err=locked")
 		default:
-			c.Redirect(http.StatusMovedPermanently, "/?err=wrong")
+			c.Redirect(302, "/?err=wrong")
 		}
 
 		return
@@ -413,7 +413,7 @@ func postLogin(c *gin.Context) {
 	session.Values["user_id"] = user.ID
 	session.Save(c.Request, c.Writer)
 
-	c.Redirect(http.StatusMovedPermanently, "/mypage")
+	c.Redirect(302, "/mypage")
 }
 
 func getMypage(c *gin.Context) {
@@ -427,7 +427,7 @@ func getMypage(c *gin.Context) {
 	}
 
 	if currentUser == nil {
-		c.Redirect(http.StatusMovedPermanently, "/?err=invalid")
+		c.Redirect(302, "/?err=invalid")
 		return
 	}
 
@@ -439,7 +439,7 @@ func getMypage(c *gin.Context) {
   <head>
     <meta charset="UTF-8">
     <script id="css">
-    document.write('<link rel="stylesheet" href="/stylesheets/bootstrap.min.css"> <link rel="stylesheet" href="/stylesheets/bootflat.min.css"> <link rel="stylesheet" href="/stylesheets/isucon-bank.css">');
+    document.write('<link rel="stylesheet" href="/public/stylesheets/bootstrap.min.css"> <link rel="stylesheet" href="/public/stylesheets/bootflat.min.css"> <link rel="stylesheet" href="/public/stylesheets/isucon-bank.css">');
     script = document.getElementById('css');
     script.parentNode.removeChild(script);
     </script>
@@ -450,7 +450,7 @@ func getMypage(c *gin.Context) {
       <h1 id="topbar">
         <a href="/">
           <script id="img">
-          document.write('<img src="/images/isucon-bank.png" alt="いすこん銀行 オンラインバンキングサービス">');
+          document.write('<img src="/public/images/isucon-bank.png" alt="いすこん銀行 オンラインバンキングサービス">');
           script = document.getElementById('img');
           script.parentNode.removeChild(script);
           </script>
@@ -593,6 +593,7 @@ func main() {
 	})
 */
 	//http.ListenAndServe(":8080", m)
-	r.Run(":8080")
+	r.Static("/public", "public")
+	r.Run(":80")
 
 }
